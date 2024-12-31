@@ -49,6 +49,7 @@
     <None Include="Assets\Scripts\Color\Gradient.shader" />
     <None Include="Assets\Scripts\Test 1.shader" />
     <None Include="Assets\Scripts\Color\TikTok.shader" />
+    <None Include="Assets\Scripts\Self\SeaWaterShader.shader" />
     <None Include="Assets\Scripts\Color\Outline.shader" />
     <None Include="Assets\Scripts\Color\Ghost.shader" />
     <None Include="Assets\Scripts\Color\Glow.shader" />

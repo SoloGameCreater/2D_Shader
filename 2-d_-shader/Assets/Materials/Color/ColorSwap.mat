@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ColorSwap
+  m_Shader: {fileID: 4800000, guid: 15f4a22a56e4fc24e8fafa9754654bfb, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ColorSwapTex:
+        m_Texture: {fileID: 2800000, guid: 8abd4bbe89eaa344a835f32c13ada338, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorSwapBlend: 1
+    - _ColorSwapBlueLuminosity: 0.5
+    - _ColorSwapGreenLuminosity: 0.5
+    - _ColorSwapRedLuminosity: 1
+    m_Colors:
+    - _ColorSwapBlue: {r: 0.754717, g: 0.74403703, b: 0.74403703, a: 1}
+    - _ColorSwapGreen: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
+    - _ColorSwapRed: {r: 0.9811321, g: 0.58775365, b: 0.61397886, a: 1}
+  m_BuildTextureStacks: []

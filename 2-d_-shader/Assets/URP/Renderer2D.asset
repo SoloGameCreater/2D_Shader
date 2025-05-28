@@ -75,4 +75,4 @@ MonoBehaviour:
   m_Name: OutlineRendererFeature
   m_EditorClassIdentifier: 
   m_Active: 1
-  outlineMaterial: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  outlineMaterial: {fileID: 2100000, guid: 12f7668bdf733fb4797171ee3dd088c0, type: 2}

@@ -14,9 +14,13 @@ public class OutlineRendererFeature : ScriptableRendererFeature
             new ShaderTagId("UniversalForward"),
             new ShaderTagId("UniversalForwardOnly"),
         };
+
+        private static readonly int _shaderProp_OutlineMask = Shader.PropertyToID("_OutlineMask");
+
         private readonly Material _outlineMaterial;
         private RTHandle _outlineTexture;
         private readonly FilteringSettings _filteringSettings;
+        private readonly MaterialPropertyBlock _materialPropertyBlock;
 
         public OutlineRenderPass(Material outlineMaterial)
         {
@@ -25,6 +29,7 @@ public class OutlineRendererFeature : ScriptableRendererFeature
 
             _outlineMaterial = outlineMaterial;
             _filteringSettings = new FilteringSettings(RenderQueueRange.all, renderingLayerMask: 1 << 8);
+            _materialPropertyBlock = new MaterialPropertyBlock();
         }
 
         // This method is called before executing the render pass.
@@ -55,13 +60,20 @@ public class OutlineRendererFeature : ScriptableRendererFeature
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {
             var cmd = CommandBufferPool.Get("Outline Command");
-            
+
             cmd.SetRenderTarget(_outlineTexture);
             cmd.ClearRenderTarget(true, true, Color.clear);
             var drawingSettings = CreateDrawingSettings(_shaderTags, ref renderingData, SortingCriteria.None);
             var rendererListParams = new RendererListParams(renderingData.cullResults, drawingSettings, _filteringSettings);
             var list = context.CreateRendererList(ref rendererListParams);
             cmd.DrawRendererList(list);
+
+            cmd.SetRenderTarget(renderingData.cameraData.renderer.cameraColorTargetHandle);
+            _materialPropertyBlock.SetTexture(_shaderProp_OutlineMask, _outlineTexture);
+            cmd.DrawProcedural(Matrix4x4.identity, _outlineMaterial,
+                0, MeshTopology.Triangles, 3, 1,
+                _materialPropertyBlock);
+
             context.ExecuteCommandBuffer(cmd);
             cmd.Clear();
             CommandBufferPool.Release(cmd);

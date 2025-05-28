@@ -50,15 +50,17 @@ Shader "OutlineFearture"
                 Varyings output;
                 output.positionCS = GetFullScreenTriangleVertexPosition(input.vertexID);
                 output.uv = GetFullScreenTriangleTexCoord(input.vertexID);
-                output.offsets[0] = half2(-1, 1) * _OutlineSize;
-                output.offsets[1] = half2(0, 1) * _OutlineSize;
-                output.offsets[2] = half2(1, 1) * _OutlineSize;
+                const half aspectRatio = _ScreenParams.x / _ScreenParams.y;
+                const half diagonalCo = 0.707;
+                output.offsets[0] = half2(-1, aspectRatio) * _OutlineSize * diagonalCo;
+                output.offsets[1] = half2(0, aspectRatio) * _OutlineSize;
+                output.offsets[2] = half2(1, aspectRatio) * _OutlineSize * diagonalCo;
                 output.offsets[3] = half2(-1, 0) * _OutlineSize;
 
                 output.offsets[4] = half2(1, 0) * _OutlineSize;
-                output.offsets[5] = half2(-1, -1) * _OutlineSize;
-                output.offsets[6] = half2(0, -1) * _OutlineSize;
-                output.offsets[7] = half2(1, -1) * _OutlineSize;
+                output.offsets[5] = half2(-1, -aspectRatio) * _OutlineSize * diagonalCo;
+                output.offsets[6] = half2(0, -aspectRatio) * _OutlineSize;
+                output.offsets[7] = half2(1, -aspectRatio) * _OutlineSize * diagonalCo;
 
                 return output;
             }

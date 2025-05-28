@@ -1,0 +1,71 @@
+# Unity 忽略文件
+
+# Unity 生成的文件和文件夹
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# Unity3D 生成的文件
+*.meta
+*.pidb.meta
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity3D 崩溃报告
+sysinfo.txt
+
+# 构建文件
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# 崩溃报告
+crashlytics-build.properties
+
+# 包管理器缓存
+/[Pp]ackages/
+/[Pp]ackage-lock.json
+
+# 自动生成的 VS/Rider/MD/Consulo 文件和文件夹
+.vs/
+.idea/
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity3D 自动生成的 meta 文件
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity3D 崩溃报告
+sysinfo.txt
+
+# 构建文件
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# 其他
+.DS_Store
+Thumbs.db
